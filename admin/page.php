@@ -123,7 +123,6 @@
                 echo'</th>';
             echo'</tr>';
         echo'</thead>';
-        echo'</form>';
         echo'<tbody>';
         foreach($get_all_manga as $k => $value){
             

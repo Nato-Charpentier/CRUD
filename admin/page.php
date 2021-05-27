@@ -18,7 +18,7 @@
     include __DIR__ . '/../class/classmanga.php';
 
     // instancier ma class manga
-    $manga = new manga();
+    $obj_manga = new manga();
     
     // je gères tous mes boutton
     if (!empty($_POST['button'])) {
@@ -31,15 +31,25 @@
                 $resume = $_POST['resume'];
                 $genre = $_POST['genre'];
 
-                $manga->createManga($titre,$langue,$age_limite,$date,$resume,$genre);
-
+                $res = $obj_manga->createManga($titre,$langue,$age_limite,$date,$resume,$genre);
+                
+                if ($res == true){
+                    $sucess = 'sucess';
+                }else{
+                    $error = 'error';
+                }
             }
 
             if($_POST['button'] == "supprimer"){
         
                 $id_manga = $_POST['id_manga'];
-                $manga->deleteManga($id_manga);
+                $res = $obj_manga->deleteManga($id_manga);
             
+                if ($res == true){
+                    $suc = 'sucess';
+                }else{
+                    $err = 'error';
+                }
             }
             
             // controler $etat avant modification
@@ -64,17 +74,44 @@
                 $resume = $_POST['resume'];
                 $genre = $_POST['genre'];
 
-                $manga->updateManga($id_manga,$titre,$langue,$age_limite,$date,$resume,$genre);
+                $res = $obj_manga->updateManga($id_manga,$titre,$langue,$age_limite,$date,$resume,$genre);
 
+                if ($res == true){
+                    $sucees = 'sucess';
+                }else{
+                    $eroor = 'error';
+                }
             }
 
     }
 
-    $get_all_manga = $manga->getAllManga();
-    $get_all_genre = $manga->getAllGenre();
+    $get_all_manga = $obj_manga->getAllManga();
+    $get_all_genre = $obj_manga->getAllGenre();
 
 
     // affichage
+    if (isset($sucess)){
+        echo '<div id="sucess" style="background-color:green;" class="sucess">sa a bien reussie</div>';
+    }
+    if (isset($error)){
+        echo '<div id="error" style="background-color:red;" class="error">echec</div>';
+    }
+    
+    if (isset($suc)){
+        echo '<div id="suc" style="background-color:green;" class="suc">sa a bien supprimer</div>';
+    }
+    if (isset($err)){
+        echo '<div id="err" style="background-color:red;" class="err">echec</div>';
+    }
+    
+    if (isset($sucees)){
+        echo '<div id="sucees" style="background-color:green;" class="sucees">sa a bien etait modifier</div>';
+    }
+    if (isset($eroor)){
+        echo '<div id="eroor" style="background-color:red;" class="eroor">echec</div>';
+    }
+    
+    
     echo'<form action="page.php" method="post" align="center">';
 
         echo'<input type="text" name="titre" placeholder="titre">';
@@ -223,6 +260,23 @@
         echo'</tbody>';
     echo'</table>';
 ?>
+
+<script src="../jquery.js"></script>
+
+<script  language="javascript">
+
+        $(document).ready(function(){
+            
+            $('.sucess').delay(2000).hide('fast');
+            $('.error').delay(2000).hide('fast');
+            $('.suc').delay(2000).hide('fast');
+            $('.err').delay(2000).hide('fast');
+            $('.sucees').delay(2000).hide('fast');
+            $('.eroor').delay(2000).hide('fast');
+
+        })
+
+</script>
 
 </body>
 

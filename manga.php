@@ -13,7 +13,7 @@
     include('class/classmanga.php');
 
     // instancier ma class manga
-    $manga = new manga();
+    $obj_manga = new manga();
     
     // je gères tous mes boutton
     if (!empty($_POST['button'])) {
@@ -26,14 +26,14 @@
                 $resume = $_POST['resume'];
                 $genre = $_POST['genre'];
 
-                $manga->createManga($titre,$langue,$age_limite,$date,$resume,$genre);
+                $obj_manga->createManga($titre,$langue,$age_limite,$date,$resume,$genre);
 
             }
 
             if($_POST['button'] == "supprimer"){
         
                 $id_manga = $_POST['id_manga'];
-                $manga->deleteManga($id_manga);
+                $obj_manga->deleteManga($id_manga);
             
             }
             
@@ -59,14 +59,14 @@
                 $resume = $_POST['resume'];
                 $genre = $_POST['genre'];
 
-                $manga->updateManga($id_manga,$titre,$langue,$age_limite,$date,$resume,$genre);
+                $obj_manga->updateManga($id_manga,$titre,$langue,$age_limite,$date,$resume,$genre);
 
             }
 
     }
 
-    $get_all_manga = $manga->getAllManga();
-    $get_all_genre = $manga->getAllGenre();
+    $get_all_manga = $obj_manga->getAllManga();
+    $get_all_genre = $obj_manga->getAllGenre();
 
 
     // affichage

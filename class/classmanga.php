@@ -18,7 +18,9 @@ class manga {
     public function createManga($titre,$langue,$age_limite,$date,$resume,$genre){
         global $conn;
         $request_insert = "INSERT INTO `manga` (`titre`,`langue`,`age_limite`,`date`,`resumer`,`fk_id_genre`) VALUES ('" . $titre . "','" . $langue . "','" . $age_limite . "','".$date."','" . $resume . "','" . $genre . "')";
-        $conn->query($request_insert);
+        $res = $conn->query($request_insert);
+        
+        return $res;
     }
 
     /**
@@ -60,7 +62,9 @@ class manga {
         global $conn;
 
         $delete_manga_request = "DELETE FROM `manga` WHERE id=".$id_manga;
-        $conn->query($delete_manga_request);
+        $res = $conn->query($delete_manga_request);
+
+        return $res;
     }
 
     /**
@@ -78,8 +82,8 @@ class manga {
     public function updateManga($id_manga,$titre,$langue,$age_limite,$date,$resume,$genre){
         global $conn;
         $update = "UPDATE `manga` SET `titre`='".$titre."',`langue`='".$langue."',`age_limite`='".$age_limite."',`date`='".$date."' ,`resumer`='".$resume."',`fk_id_genre`='".$genre."' WHERE id =".$id_manga;
-        $conn->query($update);
+        $res = $conn->query($update);
+        
+        return $res;
     }
-
-
 }

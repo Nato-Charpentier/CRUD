@@ -5,11 +5,12 @@ include __DIR__ . '/../connexion/connexiondb.php';
 class Model{
 
     /**
-     * create a manga
+     * create a works
      *
      * param [string] $titre
      * param [date] $date
      * param [string] $resume
+     * param [string] $lien
      * return void
      */
     public function createWorks($titre,$date,$resume,$lien){
@@ -47,12 +48,13 @@ class Model{
     }
 
     /**
-     * update the manga select
+     * update the works select
      *
      * param [int] $id_works
      * param [string] $titre
      * param [date] $date
      * param [string] $resume
+     * param [string] $lien
      * return void
      */
     public function updateWorks($id_works,$titre,$date,$resume,$lien){

@@ -1,0 +1,163 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #222;
+}
+
+#nav{
+	width: 10%;
+	text-align: center;
+  border: 3px rgb(251, 251, 255) outset;
+	border-radius: 10px;
+	position:static;
+  right: 0px;	
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #000000;
+}
+
+/*button*/
+.frame {
+  width: 90%;
+  text-align: center;
+}
+button {
+    margin-top: 5px;
+}
+.custom-btn {
+  width: 100px;
+  height: 30px;
+  border: 2px solid #000;
+  font-family: 'Lato', sans-serif;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-1 {
+  transition: all 0.3s ease;
+}
+.btn-1:hover {
+  background: #000;
+  color: rgb(255, 255, 255);
+}
+.btn-1:before {
+    content: '';
+    top: -100px;
+    left: 0;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+/*table*/
+.tableau-style{
+  margin: auto;
+}
+
+th, td {
+  /* Changement de la couleur des bordures */
+  border: 1px solid #000000 ; 
+  padding: 2px 50px;
+}
+/* Paramètres pour les lignes d'en-tête uniquement : thead tr signifie les lignes (tr) présentent dans l'en-tête (thead) */
+thead tr {
+  background-color: #000000 ;
+  color: #ffffff ; 
+}
+/* Paramètres pour les lignes de contenu */
+tbody tr {
+  background-color: #ffffff ;
+}
+/* Paramètres pour les lignes de contenu au survol de la souris 
+   La pseudo class :hover permet de sélectionner un élément survolé */
+tbody tr:hover { 
+  background-color: #ffffff63 ;
+  color: #1a1515 ; 
+}
+
+.form__group {
+  position: relative;
+  padding: 5px 0 0;
+  margin-top: 10px;
+  width: 15%;
+  display:inline-block;
+  margin-right: 15px;
+}
+.form__field {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.form__label {
+  position: absolute;
+  top: -10px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+.form__field:focus {
+  padding-bottom: 5px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #000000, #838080);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: -10px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #11998e;
+  font-weight: 700;
+}
+
+
+
+/* Media Queries*/
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+  
+  table thead {
+    display: none;
+  }
+  table tr {
+    border: 3px solid ;
+    display: block;
+  }
+  table td {
+    border-bottom: 2px solid ;
+    display: grid;
+    text-align: center;
+  }
+  table td:before {
+    content: attr(data-label);
+    float: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  .creer{
+    margin: 10px;
+    float: bottom;
+  }
+}
+

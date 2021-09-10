@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+::selection{
+  background: rgb(255, 255, 255);
+}
+.container{
+  max-width: 440px;
+  padding: 0 10px;
+  margin: 100px auto;
+}
+.wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  height: 90px;
+  background: #000000;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form{
+  padding: 30px 25px 25px 25px;
+}
+.wrapper form .row{
+  height: 45px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.wrapper form .row input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+form .row input:focus{
+  border-color: #16a085;
+  box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
+}
+form .row input::placeholder{
+  color: #999;
+}
+.wrapper form .row i{
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form .pass{
+  margin: -8px 0 20px 0;
+}
+.wrapper form .pass a{
+  color: #16a085;
+  font-size: 17px;
+  text-decoration: none;
+}
+.wrapper form .pass a:hover{
+  text-decoration: underline;
+}
+.wrapper form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #000000;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+form .button input:hover{
+  background: #12876f;
+}
+.wrapper form .signup-link{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.wrapper form .signup-link a{
+  color: #16a085;
+  text-decoration: none;
+}
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+
+/* darkmode */
+
+:root {
+  --bg-color: #ff0000;
+  --font-color: #222;
+  --title-color: #0067e6;
+  --title-background: #fff;
+  --main-border: 1px solid rgba(255, 255, 255, 0.4);
+  --main-bg: rgba(255, 255, 255, 0.4);
+  --nvr-color: rgb(0, 0, 0);
+  --nvr-hover-color: rgb(255, 56, 122);
+}
+[data-theme="dark"] {
+  --bg-color: #111;
+  --font-color: #efefef;
+  --title-color: #fec150;
+  --title-background: #222;
+  --main-border: 1px solid rgba(255, 255, 255, 0.2);
+  --main-bg: rgba(25, 25, 25, 0.4);
+  --nvr-color: rgb(255, 255, 255);
+  --nvr-hover-color: rgb(138, 20, 20);
+}
+body {
+  color: var(--font-color);
+  background-color: var(--bg-color);
+/* OTHER STYLING */
+}
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+}
+.theme-switch-wrapper em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+.theme-switch input {
+  display: none;
+}
+.slider {
+  background-color: rgb(255, 255, 255);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  background-color: rgb(0, 0, 0);
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #ff0000;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.slider svg {
+  color: rgb(70, 70, 70);
+  position: absolute;
+  transition: opacity 0.2s ease 0s, transform 0.35s ease 0s;
+  pointer-events: none;
+}
+.feather-moon {
+  opacity: 0;
+  left: 9px;
+  bottom: 9px;
+  transform: translateX(4px);
+}
+.feather-sun {
+  opacity: 1;
+  right: 10px;
+  bottom: 9px;
+  transform: translateX(0px);
+}
+input:checked + .slider .feather-moon {
+  opacity: 1;
+  transform: translateX(0);
+}
+input:checked + .slider .feather-sun {
+  opacity: 0;
+  transform: translateX(-4px);
+}
+.slider svg {
+  color: #222;
+  position: absolute;
+  transition: opacity 0.2s ease 0s, transform 0.35s ease 0s;
+  pointer-events: none;
+}
+.feather-moon {
+  opacity: 0;
+  left: 9px;
+  bottom: 9px;
+  transform: translateX(4px);
+}
+.feather-sun {
+  opacity: 1;
+  right: 10px;
+  bottom: 9px;
+  transform: translateX(0px);
+}
+input:checked + .slider .feather-moon {
+  opacity: 1;
+  transform: translateX(0);
+}
+input:checked + .slider .feather-sun {
+  opacity: 0;
+  transform: translateX(-4px);
+}

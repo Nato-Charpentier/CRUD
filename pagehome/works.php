@@ -33,7 +33,7 @@
         echo'</thead>';
         
         echo'<tbody>';
-        foreach($get_all_works as $k => $value){
+        foreach($get_all_works as $value){
             
                 echo'<tr align="center">';
                     echo'<td data-label="titre">';
